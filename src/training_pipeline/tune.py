@@ -20,9 +20,10 @@ from xgboost import XGBRegressor
 import mlflow
 import mlflow.xgboost
 
-DEFAULT_TRAIN = Path("data/processed/feature_engineered_train.csv")
-DEFAULT_EVAL = Path("data/processed/feature_engineered_eval.csv")
-DEFAULT_OUT = Path("models/xgb_best_model.pkl")
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_TRAIN = ROOT/Path("data/processed/feature_engineered_train.csv")
+DEFAULT_EVAL = ROOT/Path("data/processed/feature_engineered_eval.csv")
+DEFAULT_OUT = ROOT/Path("models/xgb_best_model.pkl")
 
 
 def _maybe_sample(df: pd.DataFrame, sample_frac: Optional[float], random_state: int) -> pd.DataFrame:
