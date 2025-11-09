@@ -7,13 +7,17 @@ Feature engineering: date parts, frequency encoding, target encoding, drop leaka
 - ALSO saves fitted encoders for inference
 """
 
+
+
 from pathlib import Path
 import pandas as pd
 from category_encoders import TargetEncoder
 from joblib import dump #joblib.dump saves encoders/mappings to disk (important for reusing at inference).
 
-PROCESSED_DIR = Path("data/processed")
-MODELS_DIR = Path("models")
+ROOT = Path(__file__).resolve().parents[2]  
+
+PROCESSED_DIR = ROOT / Path("data/processed")
+MODELS_DIR = ROOT /Path("models")
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
 
