@@ -6,6 +6,8 @@ Train a baseline XGBoost model.
 - Returns metrics and saves model to `model_output`.
 """
 
+
+
 from __future__ import annotations
 from pathlib import Path
 from typing import Dict, Optional
@@ -16,8 +18,13 @@ from joblib import dump
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from xgboost import XGBRegressor
 
-DEFAULT_TRAIN = Path("data/processed/feature_engineered_train.csv")
-DEFAULT_EVAL = Path("data/processed/feature_engineered_eval.csv")
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_TRAIN = ROOT / "data/processed/feature_engineered_train.csv"
+DEFAULT_EVAL = ROOT / "data/processed/feature_engineered_eval.csv"
+
+
+# DEFAULT_TRAIN = Path("../data/processed/feature_engineered_train.csv")
+# DEFAULT_EVAL = Path("../data/processed/feature_engineered_eval.csv")
 DEFAULT_OUT = Path("models/xgb_model.pkl")
 
 
